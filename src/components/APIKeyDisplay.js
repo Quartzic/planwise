@@ -7,9 +7,8 @@ export default function APIKeyDisplay({
 }) {
   return (
     <div>
-      <label htmlFor="apiKey" className="block text-md font-bold text-gray-700 mb-2">
-        API Key
-      </label>
+      <h1 className="text-lg font-bold">API Key</h1>
+      <p>Don't share this key with other people.</p>
       <div className="mt-1 flex rounded-md shadow-sm">
         <div className="relative flex flex-grow items-stretch focus-within:z-10">
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">

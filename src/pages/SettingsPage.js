@@ -47,6 +47,15 @@ export default function SettingsPage() {
 
   return (
 <>
+<div className="flex flex-col gap-8 p-8 sm:p-4">
+<div>
+  <h1 className="text-lg font-bold">Use Planwise with Siri</h1>
+  <p className="mb-2">You can use Siri to add tasks to your list using natural language. To get started, download the shortcut and add your API key.</p>
+  <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    <a href="https://www.icloud.com/shortcuts/5b0d850474d34aa7b7f7069cc0351042">Download Shortcut</a>
+  </button>
+
+</div>
 <APIKeyDisplay 
   apiKey={apiKey}
     onRegenerate={
@@ -60,6 +69,7 @@ export default function SettingsPage() {
       }
     }
 />
+</div>
 </>
   )
             {/* <div className="divide-y divide-gray-200 lg:grid lg:grid-cols-9 lg:divide-y-0 lg:divide-x">
