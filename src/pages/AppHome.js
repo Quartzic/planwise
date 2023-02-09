@@ -74,12 +74,9 @@ const HomePage = () => {
         return () => clearInterval(interval);
     }, []);
 
-
-    // trigger confetti when no more todos
+    // trigger confetti when you have to-dos, but they're all done
     useEffect(() => {
-        if (todos.length === 0 && loading === false) {
-            setConfettiActive(true);
-        }
+        setConfettiActive(!loading && todos.length > 0 && todos.every((todo) => todo.completed_at));
     }, [todos]);
 
     const deleteTodo = async (id) => {
@@ -162,6 +159,11 @@ const HomePage = () => {
                 </button>
             </div>
             <div className={"flex flex-col flex-grow gap-2 p-4"}>
+                <div className="fixed top-0 left-0 w-screen h-screen pointer-events-none"><Confetti
+                    active={confettiActive}
+                    config={confettiConfig}
+                    className="w-full h-full flex justify-center pointer-events-none"
+                /></div>
                 {todos.length ? (
                     todos.map((todo) => (
                         <TodoItem
@@ -176,11 +178,6 @@ const HomePage = () => {
                             "py-8 h-full flex justify-center items-center"
                         }
                     >
-                        <Confetti
-                            active={confettiActive}
-                            config={confettiConfig}
-                            className="max-h-full max-w-screen"
-                        />
                         No more tasks for today! 🎉
                     </span>
                 )}
